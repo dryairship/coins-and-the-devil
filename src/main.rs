@@ -1,6 +1,16 @@
 use std::io::{self, Write};
 use rand;
 
+fn check_win(arr: &[i32]) -> bool {
+    let first_value = arr[0];
+    for value in arr.iter() {
+        if *value != first_value {
+            return false;
+        }
+    }
+    return true;
+}
+
 fn main() {
     print!("Enter the value of n : ");
     io::stdout().flush().unwrap();
@@ -17,4 +27,5 @@ fn main() {
     }
     
     println!("{:?}", arr);
+    println!("{}", check_win(&arr));
 }
